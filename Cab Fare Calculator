@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Input: ride distance
+        System.out.print("Enter ride distance in km: ");
+        double distance = sc.nextDouble();
+
+        double fare;
+
+        // Calculate fare based on distance
+        if(distance <= 5) {
+            fare = 100; // flat rate
+        } else if(distance <= 15) {
+            fare = distance * 10; // ₹10 per km
+        } else {
+            fare = distance * 8; // ₹8 per km
+        }
+
+        // Output the fare
+        System.out.println("Fare = ₹" + fare);
+
+        sc.close();
+    }
+}
