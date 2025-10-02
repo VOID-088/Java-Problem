@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Input area and units
+        System.out.print("Enter Area (Rural/Urban): ");
+        String area = sc.nextLine();
+
+        System.out.print("Enter electricity usage in units: ");
+        int units = sc.nextInt();
+
+        // Determine subsidy eligibility
+        if(area.equalsIgnoreCase("Rural") && units < 100) {
+            System.out.println("Customer is eligible for Subsidy.");
+        } else {
+            System.out.println("Customer is NOT eligible for Subsidy.");
+        }
+
+        // Determine surcharge
+        if(area.equalsIgnoreCase("Urban") || units > 500) {
+            System.out.println("Customer has to pay SURCHARGE.");
+        } else {
+            System.out.println("No Surcharge.");
+        }
+
+        sc.close();
+    }
+}
