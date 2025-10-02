@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+class atm {
+  private int balance;
+ 
+  atm(int balance){
+    this.balance=balance;
+  }
+  // getter for balance
+  public int getbalance(){
+    return balance;
+  }
+  // setter for balance 
+  public void setbalance(int balance){
+    this.balance=balance;
+  }
+  // method created for the withdrawal amount
+  public void withdraw(int amount){
+    if (amount<=balance){
+      setbalance(balance-amount);
+      System.out.println("Transaction Successful");
+      System.out.println("Remaining Balance:"+getbalance());
+      System.out.println();
+    }
+    else{
+      System.out.println("Insufficient Balance ");
+    }
+  }
+
+}
+
+
+public class main{
+public static void main(String[] args) {
+  
+  Scanner sc = new Scanner(System.in);
+  atm ATM= new atm(50000);
+  System.out.print("Enter your withdrawal Amount:");
+  int amount=sc.nextInt();
+  ATM.withdraw(amount);
+}
+}
