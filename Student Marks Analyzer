@@ -1,0 +1,35 @@
+public class Main {
+    public static void main(String[] args) {
+        // Input: marks of students
+        int[] marks = {45, 78, 89, 34, 56};
+
+        int highest = marks[0];
+        int lowest = marks[0];
+        int sum = 0;
+        int failedCount = 0;
+
+        // Loop through the array
+        for(int mark : marks) {
+            // Find highest
+            if(mark > highest) highest = mark;
+
+            // Find lowest
+            if(mark < lowest) lowest = mark;
+
+            // Add to sum for average
+            sum += mark;
+
+            // Count failed students (marks < 40)
+            if(mark < 40) failedCount++;
+        }
+
+        // Calculate average
+        double average = (double)sum / marks.length;
+
+        // Print results
+        System.out.println("Highest = " + highest);
+        System.out.println("Lowest = " + lowest);
+        System.out.println("Average = " + average);
+        System.out.println("Failed Students = " + failedCount);
+    }
+}
