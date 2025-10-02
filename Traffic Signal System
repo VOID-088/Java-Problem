@@ -1,0 +1,37 @@
+
+import java.util.*;
+
+
+public class main {
+
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+     while (true) 
+    {
+    
+      System.out.print("Enter signal color (Red/Yellow/Green) or 'exit' to quit: ");
+    String color = sc.nextLine().trim();
+    if (color.equalsIgnoreCase("exit")) {
+                System.out.println("Goodbye!");
+                break; // exit the loop
+            }
+
+     switch (color.toLowerCase()) 
+     {
+      case "red":
+      System.out.println("Stop");
+        break;
+      case "yellow":
+      System.out.println("Wait");
+        break;
+      case "green":
+      System.out.println("Go");
+        break;
+     
+      default:
+       System.out.println("Invalid color");
+        break;
+     }
+    }
+  }
+}
