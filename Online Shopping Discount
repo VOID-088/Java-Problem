@@ -1,0 +1,53 @@
+
+import java.util.*;
+class shopping{
+  double amount;
+
+  shopping(double amount){
+    this.amount=amount;
+  }
+
+  public void Discount(){
+    double discount = 0;
+    if (amount>=5000){
+      discount=0.20*amount;
+    }
+    else if(amount>=2000){
+      discount=0.10*amount;
+    }
+    else{
+      discount=0;
+    }
+    double totalamount = amount-discount;
+
+    System.out.println("Original Amount: " + amount);
+    System.out.println("Discount Applied: " + discount);
+    System.out.println("Final Payable Amount: " + totalamount);
+
+  }
+}
+public class main {
+  public static void main(String[] args) {
+    Scanner sc= new Scanner(System.in);
+// looping for continious purchase & discount
+    while(true){
+      System.out.print("Enter your purchase amount(or enter 0 to exit):");
+       double amount = sc.nextDouble();
+    
+    if (amount ==0){
+       System.out.println("Thank you for shopping!");
+                break;  
+    }
+  
+    shopping product = new shopping(amount);
+    product.Discount();
+  }
+}
+}
+Input: Signal Color.
+
+- If color = "Red" → Print "Stop".
+
+- If color = "Yellow" → Print "Get Ready".
+
+- If color = "Green" → Print "Go".
