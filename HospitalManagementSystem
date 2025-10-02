@@ -1,0 +1,64 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Hospital h = new Hospital();
+
+        // ---- Add Patients ----
+        System.out.print("Enter number of patients: ");
+        int pCount = sc.nextInt();
+        sc.nextLine(); // consume newline
+
+        for (int i = 0; i < pCount; i++) {
+            System.out.println("\nEnter details for Patient " + (i+1));
+            System.out.print("ID: ");
+            int id = sc.nextInt();
+            sc.nextLine();
+            System.out.print("Name: ");
+            String name = sc.nextLine();
+            System.out.print("Disease: ");
+            String disease = sc.nextLine();
+
+            Patient p = new Patient(id, name, disease);
+            h.admit(p);   // you can also use admit(p, "Room X") if needed
+        }
+
+        // ---- Add Staff ----
+        System.out.print("\nEnter number of staff: ");
+        int sCount = sc.nextInt();
+        sc.nextLine();
+
+        for (int i = 0; i < sCount; i++) {
+            System.out.println("\nEnter details for Staff " + (i+1));
+            System.out.print("Type (doctor/nurse): ");
+            String type = sc.nextLine().toLowerCase();
+
+            System.out.print("Name: ");
+            String name = sc.nextLine();
+            System.out.print("Department: ");
+            String dept = sc.nextLine();
+
+            if (type.equals("doctor")) {
+                System.out.print("Specialization: ");
+                String specialization = sc.nextLine();
+                Doctor d = new Doctor(name, dept, specialization);
+                h.addStaff(d);
+            } 
+            else if (type.equals("nurse")) {
+                System.out.print("Shift hours: ");
+                int shift = sc.nextInt();
+                sc.nextLine();
+                Nurse n = new Nurse(name, dept, shift);
+                h.addStaff(n);
+            }
+            else {
+                System.out.println("Invalid staff type, skipping...");
+            }
+        }
+
+        // ---- Display All ----
+        h.showAll();
+        sc.close();
+    }
+}
