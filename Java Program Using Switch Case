@@ -1,0 +1,34 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a button number (1-4): ");
+        int button = sc.nextInt();
+
+        switch (button) {
+            case 1:
+                System.out.print("Hello my friend");
+                break;
+
+            case 2:
+                System.out.print("Hello father");
+                break;
+
+            case 3:
+                System.out.print("Hello son");
+                break;
+
+            case 4:
+                System.out.print("Hello mummy");
+                break;
+
+            default:
+                System.out.print("Invalid button");
+                break;
+        }
+
+        sc.close();
+    }
+}
